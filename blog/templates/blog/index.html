@@ -1,7 +1,18 @@
 {% extends "blog/base.html" %}
 
+{% block title %}
+    {{ block.super }}
+    - Index
+{% endblock title %}
+
 {% block content %}
-    Hello World
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">    
+                {{ post.title }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock content %}
 
 
