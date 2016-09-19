@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-
+from django.utils import timezone
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.filter(published_date__lt=timezone.now())
 
     context = {
         "posts" : posts
@@ -14,7 +14,7 @@ def index(request):
 
 def post(request, id):
     
-    post = get_object_or_404(Post, pk=id)
+    post = get_object_or_404(Post, pk=id, published_date__lt=timezone.now())
 
     context = {
         "post":post

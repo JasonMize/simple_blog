@@ -4,7 +4,7 @@ from .models import Post
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'published_date', 'get_absolute_url')
+    list_display = ('title', 'published_date', 'get_absolute_url', 'is_published')
 
 
 
